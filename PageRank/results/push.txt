@@ -1,0 +1,18 @@
+Reading files...
+Number of edges: 46092177
+Number of nodes: 2080370
+Charge time: 61.4494252204895 seconds
+Calculating Page Rank value with alpha = 0.15
+Calculation time: 240.36899995803833 seconds
+Top 5 highest page rank nodes:
+ID: 3434750 Name: United States Page Rank value: 0.000981371513358424
+ID: 11867 Name: Germany Page Rank value: 0.0004196821689516084
+ID: 36165 Name: 2007 Page Rank value: 0.0003983821920415831
+ID: 9316 Name: England Page Rank value: 0.0003954508096592435
+ID: 5042916 Name: Canada Page Rank value: 0.0003529741959227191
+Top 5 lowest page rank nodes:
+ID: 632 Name: Aberdeen (disambiguation) Page Rank value:  4.0929832398196476e-07
+ID: 679 Name: Animal (disambiguation) Page Rank value:  4.0929832398196476e-07
+ID: 951 Name: Antigua and Barbuda Page Rank value:  4.0929832398196476e-07
+ID: 964 Name: AWK (disambiguation) Page Rank value:  4.0929832398196476e-07
+ID: 1110 Name: Demographics of American Samoa Page Rank value:  4.0929832398196476e-07
