@@ -40,6 +40,7 @@ def pushPageRank(edges, pages, alpha, adj_array, node_to_index):
             for w in s[v]:
                 r[v] += 1 / degree_out[w]
         r[v] *= (1 - alpha) * alpha
+    print(r)
 
     while len(worklist) > 0:
         v = worklist.pop()
@@ -57,6 +58,7 @@ def pushPageRank(edges, pages, alpha, adj_array, node_to_index):
     x /= norm
     time_end = time.time()
     print("Calculation time:", time_end - time_start, "seconds")
+    print(x)
     return x
 
 
@@ -78,4 +80,4 @@ if __name__ == '__main__':
     PageRank = pushPageRank(Edges, Pages, Alpha, AdjArray, Node_Index)
 
     # printing results
-    print_highest_lowest_values(PageRank, Pages)
+    #print_highest_lowest_values(PageRank, Pages)

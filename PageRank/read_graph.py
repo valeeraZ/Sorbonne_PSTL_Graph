@@ -11,8 +11,8 @@ def readGraph():
     print("Reading files...")
 
     # Reading
-    data_edge = pd.read_table('data/alr21--dirLinks--enwiki-20071018.txt', skiprows=5, dtype=int, header=None)
-    data_page = pd.read_table('data/alr21--pageNum2Name--enwiki-20071018.txt', skiprows=5, encoding='utf-8',
+    data_edge = pd.read_table('dirLinks.txt', dtype=int, header=None)
+    data_page = pd.read_table('pages.txt', encoding='utf-8',
                               header=None)
     edges = data_edge.values.tolist()
     pages = data_page.values.tolist()
