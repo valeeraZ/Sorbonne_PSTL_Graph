@@ -99,7 +99,7 @@ def push2(adjacency: Union[sparse.csr_matrix, LinearOperator], seeds: np.ndarray
 if __name__ == '__main__':
     """
     time_start = time.time()
-    graph = load_edge_list('test.txt', directed=True, fast_format=False)
+    graph = load_edge_list('wiki_dirLinks.txt', directed=True, fast_format=False)
     adjacency = graph.adjacency
     time_end = time.time()
     print("Sknetwork load graph time:", time_end - time_start, "seconds")

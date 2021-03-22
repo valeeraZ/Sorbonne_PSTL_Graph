@@ -1,3 +1,8 @@
 /venv
-/PageRank/data/*
+/PageRank/data
 /.idea
+*/*.so
+*/*.html
+*/*.o
+*/*.c*
+*/build

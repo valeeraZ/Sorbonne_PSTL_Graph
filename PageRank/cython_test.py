@@ -7,16 +7,19 @@ from sknetwork.data import load_edge_list, house, miserables
 from sknetwork.ranking import PageRank
 from read_graph import print_highest_lowest_values
 
-# adjacency = miserables()
+"""
+adjacency = house()
+"""
 
 time_start = time.time()
-graph = load_edge_list('test.txt', directed=True, fast_format=False)
+graph = load_edge_list('data/wiki_dirLinks.txt', directed=True, fast_format=False)
 adjacency = graph.adjacency
 time_end = time.time()
 print("Sknetwork load graph time:", time_end - time_start, "seconds")
 
+
 # read names of pages
-pages = pd.read_table('test_pageNum.txt', encoding='utf-8', header=None).values.tolist()
+pages = pd.read_table('data/wiki_pageNum.txt', encoding='utf-8', header=None).values.tolist()
 
 # beginning push algorithm
 time_start = time.time()

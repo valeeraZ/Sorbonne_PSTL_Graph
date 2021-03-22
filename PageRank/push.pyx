@@ -11,8 +11,8 @@ from cython.parallel cimport prange
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-@cython.cdivision(True)
-def push_pagerank(int n, int[:] degrees, int[:] indptr, int[:] indices, int[:] rev_indptr, int[:] rev_indices, float damping_factor, float tol):
+#@cython.cdivision(True)
+def push_pagerank(int n, np.ndarray[np.int32_t, ndim=1] degrees, int[:] indptr, int[:] indices, int[:] rev_indptr, int[:] rev_indices, float damping_factor, float tol):
     cdef np.ndarray[np.float32_t, ndim=1] r
     cdef int v
     cdef int w
