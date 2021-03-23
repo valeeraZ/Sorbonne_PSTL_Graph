@@ -3,23 +3,27 @@ import pandas as pd
 import time
 import numpy as np
 from scipy import sparse
-from sknetwork.data import load_edge_list, house, miserables
+from sknetwork.data import load_edge_list
 from sknetwork.ranking import PageRank
-from read_graph import print_highest_lowest_values
+from read_graph import print_highest_lowest_values, get_rang
 from sknetwork.utils.seeds import seeds2probs
 
 # load graph
 
-adjacency = house()
+time_start = time.time()
+graph = load_edge_list('data/wiki_dirLinks.txt', directed=True, fast_format=False)
+adjacency = graph.adjacency
+time_end = time.time()
+print("Sknetwork load graph time:", time_end - time_start, "seconds")
 
 # read names of pages
 
-pages = pd.read_table('data/pageNum.txt', encoding='utf-8', header=None).values.tolist()
-
+pages = pd.read_table('data/wiki_pageNum.txt', encoding='utf-8', header=None).values.tolist()
 
 # parameters
 
-seeds = np.array([1,0,0,1,0])
+# seeds = {2597: 1, 26634: 1, 229857: 1}
+seeds = None
 
 seeds = seeds2probs(adjacency.shape[0], seeds)
 tol = 1e-6
@@ -41,6 +45,10 @@ time_end = time.time()
 print("Push Calculation time:", time_end - time_start, "seconds")
 print("Result:")
 print_highest_lowest_values(scores, pages)
+print("Chess rang:")
+print(get_rang(scores, 2597))
+print(get_rang(scores, 26634))
+print(get_rang(scores, 229857))
 
 print("------")
 

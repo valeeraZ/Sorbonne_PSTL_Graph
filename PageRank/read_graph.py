@@ -1,5 +1,6 @@
 import pandas as pd
 import time
+import numpy as np
 
 
 def readGraph():
@@ -59,7 +60,7 @@ def print_highest_lowest_values(page_rank, pages):
             index = t.index(number)
             name = pages[index][1]
             node = pages[index][0]
-            print("ID:", node, "Name:", name, "Page Rank value: ", number)
+            print("ID:", node, "Name:", name, "Page Rank value:", number)
             t[index] = 2
 
 
@@ -100,3 +101,9 @@ def makeAdjArray(edges):
         else:
             adj_array[edge[0]].append(edge[1])
     return adj_array
+
+
+def get_rang(page_rank, id):
+    indexes = np.argsort(-page_rank)
+    rang = np.where(indexes == id)
+    return rang[0][0]
