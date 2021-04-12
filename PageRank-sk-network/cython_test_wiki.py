@@ -26,7 +26,7 @@ pages = pd.read_table('data/wiki_pageNum.txt', encoding='utf-8', header=None).va
 seeds = None
 
 seeds = seeds2probs(adjacency.shape[0], seeds)
-tol = 1e-6
+tol = 1e-1
 damping_factor = 0.85
 
 # beginning push algorithm

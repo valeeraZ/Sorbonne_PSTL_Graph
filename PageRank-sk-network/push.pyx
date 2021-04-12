@@ -26,6 +26,8 @@ def push_pagerank(int n, np.ndarray[np.int32_t, ndim=1] degrees, int[:] indptr, 
     cdef np.ndarray[np.float32_t, ndim=1] scores
     cdef float tmp
     cdef float norm
+    cdef bint push
+    push = False
 
     r = np.zeros(n, dtype=np.float32)
     for v in prange(n, nogil=True):
@@ -66,6 +68,7 @@ def push_pagerank(int n, np.ndarray[np.int32_t, ndim=1] degrees, int[:] indptr, 
             tmp = r[w]
             r[w] += r[v] * (1 - damping_factor) / degrees[v]
             if r[w] >= tol > tmp:
+                push = True
                 worklist.push(w)
         """
         for w in indices[j1:j2]:
@@ -75,6 +78,7 @@ def push_pagerank(int n, np.ndarray[np.int32_t, ndim=1] degrees, int[:] indptr, 
                 worklist.push(w)
         r[v] = 0
         """
+    print(push)
     norm = np.linalg.norm(scores, 1)  # ||x||_1
     scores /= norm
     return scores
